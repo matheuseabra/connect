@@ -22,7 +22,6 @@ import {
   TouchableHighlight,
   Modal,
 } from 'react-native';
-//import Modal from 'react-native-modal';
 import {
   Card,
   CardSection,
@@ -131,8 +130,7 @@ class MeuPerfil extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar backgroundColor="#2A4065" />
-
+        <StatusBar backgroundColor="#000" />
         <ImageBackground
           style={styles.headerBackground}
           source={require('../../assets/img/background.jpg')}
@@ -179,7 +177,7 @@ class MeuPerfil extends Component {
           transparent={false}
           visible={this.state.modalVisible}
           onRequestClose={() => {
-            alert('Modal has been closed.');
+            this.setModalVisible(!this.state.modalVisible);
           }}
           supportedOrientations={false}
         >
@@ -224,14 +222,6 @@ class MeuPerfil extends Component {
                   <Texts text={this.props.errorMessageBirthday} />
                 </View>
                 <CardSection>{this.renderSaveDataUserButton()}</CardSection>
-
-                <TouchableHighlight
-                  onPress={() => {
-                    this.setModalVisible(!this.state.modalVisible);
-                  }}
-                >
-                  <Text style={{ fontSize: 30 }}>Hide Modal</Text>
-                </TouchableHighlight>
               </Card>
             </ScrollView>
           </LinearGradient>
@@ -243,16 +233,17 @@ class MeuPerfil extends Component {
 
 const styles = StyleSheet.create({
   titulo: {
-    fontSize: 20,
-    fontFamily: 'Ubuntu',
-    marginBottom: 10,
+    fontFamily: 'Ubuntu-Medium', 
+    fontWeight: '200',
+    fontSize: 18,
     color: '#000',
     backgroundColor: '#fff',
-    paddingRight: 120,
-    paddingLeft: 120,
-    paddingBottom: 15,
+    marginBottom: 10,
+    paddingRight: 129,
+    paddingLeft: 129,
+    paddingBottom: 18,
     paddingTop: 15,
-    marginTop: -22,
+    marginTop: -24
   },
   container: {
     flex: 1,
@@ -318,7 +309,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
-    // fontStyle: 'italic',
     fontFamily: 'Ubuntu',
   },
   barraBottom: {
@@ -327,7 +317,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'Ubuntu',
   },
-
   areaBtn: {
     flex: 1,
     backgroundColor: '#fff',
@@ -352,16 +341,17 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
 });
-
 const mapStateToProps = state => {
   return {
     namePerfil: state.perfil.namePerfil,
     registrationPerfil: state.perfil.registrationPerfil,
     birthdayPerfil: state.perfil.birthdayPerfil,
     idadePerfil: state.perfil.idadePerfil,
+    errorMessageName: state.perfil.errorMessageNamePerfil,
+    errorMessageRegistration: state.perfil.errorMessageRegistrationPerfil,
+    errorMessageBirthday: state.perfil.errorMessageBirthdayPerfil
   };
 };
-
 export default connect(mapStateToProps, {
   dataPerfil,
   onNameChanged,

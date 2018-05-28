@@ -20,7 +20,10 @@ const INITIAL_STATE = {
     namePerfil: '',
     registrationPerfil: '',
     birthdayPerfil: '',
-    idadePerfil: '24'
+    idadePerfil: '24',
+    errorMessageNamePerfil: '',
+    errorMessageRegistrationPerfil: '',
+    errorMessageBirthdayPerfil: '',
 };
 
 export default (state = INITIAL_STATE, action) => {
