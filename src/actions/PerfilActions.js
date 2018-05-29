@@ -32,6 +32,7 @@ export const saveDataUser = (user) => {
         cpf: user.cpfPerfil,
         nome: user.namePerfil,
         nascimento: user.birthdayPerfil,
+        area_tematica: user.area_tematicaPerfil,
         email: usuario.email
       }).then(() => {
         alert('Dados Salvos com sucesso');

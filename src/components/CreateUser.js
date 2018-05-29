@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
-import { onNameChanged, onRegistrationChanged, onBirthChanged, onEmailChanged, onPasswordChanged, onConfirmPasswordChanged, authUser } from '../actions';
+import {
+  onNameChanged,
+  onRegistrationChanged,
+  onBirthChanged,
+  onAreaTematicaChanged,
+  onEmailChanged,
+  onPasswordChanged,
+  onConfirmPasswordChanged,
+  authUser
+} from '../actions';
 import { Card, CardSection, Texts, Input, Button, ButtonBack, Loading } from './commons';
-import { ScrollView, Image, View, Text } from 'react-native';
+import { ScrollView, Image, View, Text, Picker } from 'react-native';
 import { connect } from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import Styles from '../Styles';
@@ -29,7 +38,8 @@ class CreateUser extends Component {
       birthday: this.props.birthday,
       email: this.props.email,
       password: this.props.password,
-      error: this.props.error
+      error: this.props.error,
+      area_tematica: this.props.area_tematica
     }
 
     return (
@@ -84,7 +94,7 @@ class CreateUser extends Component {
             </View>
 
             <CardSection>
-              <Input                
+              <Input
                 keyboardType={'email-address'}
                 placeholder="E-mail: aluno@email.com"
                 onChangeText={email => this.props.onEmailChanged(email)}
@@ -94,6 +104,23 @@ class CreateUser extends Component {
             <View>
               <Texts text={this.props.errorMessageEmail} />
             </View>
+            <CardSection>
+              <Picker
+                selectedValue={this.props.area_tematica}
+                style={{ height: 50, width: 250 }}
+                onValueChange={area_tematica => this.props.onAreaTematicaChanged(area_tematica)}
+              >
+                <Picker.Item label="Comunicação" value="Comunicação" />
+                <Picker.Item label="Cultura" value="Cultura" />
+                <Picker.Item label="Direitos Humanos e Justiça" value="Direitos Humanos e Justiça" />
+                <Picker.Item label="Educação" value="Educação" />
+                <Picker.Item label="Meio Ambiente" value="Meio Ambiente" />
+                <Picker.Item label="Ciências Sociais e Aplicadas" value="Ciências Sociais e Aplicadas" />
+                <Picker.Item label="Saúde" value="Saúde" />
+                <Picker.Item label="Tecnologia e Produção" value="Tecnologia e Produção" />
+                <Picker.Item label="Trabalho" value="Trabalho" />
+              </Picker>
+            </CardSection>
             <CardSection>
               <Input
                 placeholder="Senha:"
@@ -139,6 +166,7 @@ const mapStateToProps = (state) => {
     cpf: state.createUser.cpf,
     birthday: state.createUser.birthday,
     email: state.createUser.email,
+    area_tematica: state.createUser.area_tematica,
     password: state.createUser.password,
     confirmPassword: state.createUser.confirmPassword,
     loading: state.createUser.loading,
@@ -157,6 +185,7 @@ export default connect(mapStateToProps, {
   onNameChanged,
   onRegistrationChanged,
   onBirthChanged,
+  onAreaTematicaChanged,
   onEmailChanged,
   onPasswordChanged,
   onConfirmPasswordChanged,

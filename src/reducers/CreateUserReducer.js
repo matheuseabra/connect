@@ -5,6 +5,8 @@ import {
     INVALID_REGISTRATION,
     VALID_BIRTHDAY,
     INVALID_BIRTHDAY,
+    VALID_AREA_TEMATICA,
+    INVALID_AREA_TEMATICA,
     VALID_EMAIL,
     INVALID_EMAIL,
     VALID_PASSWORD,
@@ -21,6 +23,7 @@ const INITIAL_STATE = {
     cpf: '',
     birthday: '',
     email: '',
+    area_tematica: '',
     password: '',
     confirmPassword: '',
     loading: false,
@@ -39,15 +42,19 @@ export default (state = INITIAL_STATE, action) => {
         case VALID_NAME:
             return { ...state, name: action.payload, errorMessageName: '', error: false };
         case INVALID_NAME:
-            return { ...state, name: '', errorMessageName: 'Digite um nome válido!', error: true };
+            return { ...state, name: action.payload, errorMessageName: 'Digite um nome válido!', error: true };
         case VALID_REGISTRATION:
             return { ...state, cpf: action.payload, errorMessageCpf: '', error: false };
         case INVALID_REGISTRATION:
-            return { ...state, cpf: '', errorMessageCpf: 'CPF deve conter apenas números!', error: true };
+            return { ...state, cpf: action.payload, errorMessageCpf: 'CPF deve conter apenas números!', error: true };
         case VALID_BIRTHDAY:
             return { ...state, birthday: action.payload, errorMessageBirthday: '', error: false };
         case INVALID_BIRTHDAY:
             return { ...state, birthday: action.payload, errorMessageBirthday: 'Digite um formato de data válido!', error: true };
+        case VALID_AREA_TEMATICA:
+            return { ...state, area_tematica: action.payload, errorMessageAreaTematica: '', error: false };
+        case INVALID_AREA_TEMATICA:
+            return {state, area_tematica: action.payload, errorMessageAreaTematica: 'Escolha uma área temática', error: true };
         case VALID_EMAIL:
             return { ...state, email: action.payload, errorMessageEmail: '', error: false };
         case INVALID_EMAIL:

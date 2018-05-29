@@ -15,7 +15,9 @@ import {
     MISMATCH_PASSWORD,
     CREATING_ACCOUNT,
     CREATE_ACCOUNT_SUCCESS,
-    CREATE_ACCOUNT_ERROR
+    CREATE_ACCOUNT_ERROR,
+    VALID_AREA_TEMATICA,
+    INVALID_AREA_TEMATICA
 } from './types';
 
 export const onNameChanged = (name) => {
@@ -38,6 +40,12 @@ export const onBirthChanged = (birth) => {
 
     return { type: INVALID_BIRTHDAY, payload: birth };
 };
+
+export const onAreaTematicaChanged = (area_tematica) => {
+    if (area_tematica !=null) return { type: VALID_AREA_TEMATICA, payload: area_tematica };
+
+    return {type: INVALID_AREA_TEMATICA, payload: area_tematica}
+}
 
 export const onEmailChanged = (email) => {
     const validateEmail = validateEmails(email);
@@ -79,7 +87,8 @@ const saveUser = (dispatch, user, usuario) => {
         nome: user.name,
         cpf: user.cpf,
         nascimento: user.birthday,
-        email: user.email
+        email: user.email,
+        area_tematica: user.area_tematica
     }).then(() => {
         dispatch({ type: CREATE_ACCOUNT_SUCCESS });
     })

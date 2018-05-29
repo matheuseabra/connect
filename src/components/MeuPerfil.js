@@ -3,6 +3,7 @@ import {
   onNameChanged,
   onRegistrationChanged,
   onBirthChanged,
+  onAreaTematicaChanged,
   onEmailChanged,
   authUser,
   adicionaContato,
@@ -21,6 +22,7 @@ import {
   ImageBackground,
   TouchableHighlight,
   Modal,
+  Picker
 } from 'react-native';
 import {
   Card,
@@ -101,7 +103,8 @@ class MeuPerfil extends Component {
       namePerfil: this.props.namePerfil,
       registrationPerfil: this.props.registrationPerfil,
       birthdayPerfil: this.props.birthdayPerfil,
-      cpfPerfil: this.props.cpfPerfil
+      cpfPerfil: this.props.cpfPerfil,
+      area_tematicaPerfil: this.props.area_tematicaPerfil
     };
 
     if (this.props.loading) {
@@ -213,6 +216,23 @@ class MeuPerfil extends Component {
                 <View>
                   <Texts text={this.props.errorMessageBirthday} />
                 </View>
+                <CardSection>
+              <Picker
+                selectedValue={this.props.area_tematicaPerfil}
+                style={{ height: 50, width: 250 }}
+                onValueChange={area_tematicaPerfil => this.props.onAreaTematicaChanged(area_tematicaPerfil)}
+              >
+                <Picker.Item label="Comunicação" value="Comunicação" />
+                <Picker.Item label="Cultura" value="Cultura" />
+                <Picker.Item label="Direitos Humanos e Justiça" value="Direitos Humanos e Justiça" />
+                <Picker.Item label="Educação" value="Educação" />
+                <Picker.Item label="Meio Ambiente" value="Meio Ambiente" />
+                <Picker.Item label="Ciências Sociais e Aplicadas" value="Ciências Sociais e Aplicadas" />
+                <Picker.Item label="Saúde" value="Saúde" />
+                <Picker.Item label="Tecnologia e Produção" value="Tecnologia e Produção" />
+                <Picker.Item label="Trabalho" value="Trabalho" />
+              </Picker>
+            </CardSection>
                 <CardSection>{this.renderSaveDataUserButton()}</CardSection>
               </Card>
             </ScrollView>
@@ -309,6 +329,7 @@ const mapStateToProps = state => {
     namePerfil: state.perfil.namePerfil,
     cpfPerfil: state.perfil.cpfPerfil,
     birthdayPerfil: state.perfil.birthdayPerfil,
+    area_tematicaPerfil: state.perfil.area_tematicaPerfil,
     idadePerfil: state.perfil.idadePerfil,
     errorMessageName: state.perfil.errorMessageNamePerfil,
     errorMessageCpf: state.perfil.errorMessageCpfPerfil,
@@ -319,6 +340,7 @@ export default connect(mapStateToProps, {
   dataPerfil,
   onNameChanged,
   onRegistrationChanged,
+  onAreaTematicaChanged,
   onBirthChanged,
   saveDataUser,
 })(MeuPerfil);

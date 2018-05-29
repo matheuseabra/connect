@@ -8,6 +8,8 @@ import {
     INVALID_REGISTRATION,
     VALID_BIRTHDAY,
     INVALID_BIRTHDAY,
+    VALID_AREA_TEMATICA,
+    INVALID_AREA_TEMATICA,
     VALID_EMAIL,
     INVALID_EMAIL,
     VALID_PERFIL,
@@ -20,6 +22,7 @@ const INITIAL_STATE = {
     namePerfil: '',
     cpfPerfil: '',
     birthdayPerfil: '',
+    area_tematicaPerfil: '',
     emailPerfil: '',
     idadePerfil: '24',
     errorMessageNamePerfil: '',
@@ -41,6 +44,10 @@ export default (state = INITIAL_STATE, action) => {
             return { ...state, cpfPerfil: action.payload, errorMessageCpfPerfil: '', error: false };
         case INVALID_REGISTRATION:
             return { ...state, cpfPerfil: '', errorMessageCpfPerfil: 'CPF deve conter apenas números!', error: true };
+        case VALID_AREA_TEMATICA:
+            return { ...state, area_tematicaPerfil: action.payload, errorMessageAreaTematicaPerfil: '', error: false };
+        case INVALID_AREA_TEMATICA:
+            return {state, area_tematicaPerfil: action.payload, errorMessageAreaTematicaPerfil: 'Escolha uma área temática', error: true };
         case VALID_BIRTHDAY:
             return { ...state, birthdayPerfil: action.payload, errorMessageBirthdayPerfil: '', error: false };
         case INVALID_BIRTHDAY:
