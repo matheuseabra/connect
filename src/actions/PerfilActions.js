@@ -29,9 +29,10 @@ export const saveDataUser = (user) => {
     return (dispatch) => {
       const usuario = firebaseAuth().currentUser;
       database().ref(`usuario/${usuario.uid}`).set({
-        nome: user.namePerfil,
         cpf: user.cpfPerfil,
+        nome: user.namePerfil,
         nascimento: user.birthdayPerfil,
+        email: usuario.email
       }).then(() => {
         alert('Dados Salvos com sucesso');
         this.props.navigation.navigate('MeuPerfil');

@@ -101,6 +101,7 @@ class MeuPerfil extends Component {
       namePerfil: this.props.namePerfil,
       registrationPerfil: this.props.registrationPerfil,
       birthdayPerfil: this.props.birthdayPerfil,
+      cpfPerfil: this.props.cpfPerfil
     };
 
     if (this.props.loading) {
@@ -175,7 +176,7 @@ class MeuPerfil extends Component {
           <LinearGradient colors={['#2A4065', '#2BA3DA']}>
             <ScrollView style={Styles.scrollViewStyle}>
               <Card addStyle={{ paddingBottom: 40 }}>
-                <Text style={styles.titulo}>Editar Perfil</Text>
+                <Text style={styles.titulo}>Editar perfil</Text>
                 <CardSection>
                   <Input
                     placeholder="Nome:"
