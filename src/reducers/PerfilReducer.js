@@ -18,11 +18,12 @@ import {
 
 const INITIAL_STATE = {
     namePerfil: '',
-    registrationPerfil: '',
+    cpfPerfil: '',
     birthdayPerfil: '',
+    emailPerfil: '',
     idadePerfil: '24',
     errorMessageNamePerfil: '',
-    errorMessageRegistrationPerfil: '',
+    errorMessageCpfPerfil: '',
     errorMessageBirthdayPerfil: '',
 };
 
@@ -31,19 +32,19 @@ export default (state = INITIAL_STATE, action) => {
     console.log(action.payload);
     switch (action.type) {
         case VALID_PERFIL:
-            return { ...state }
+            return { ...state, namePerfil: action.payload.nome, cpfPerfil: action.payload.cpf, birthdayPerfil: action.payload.nascimento, emailPerfil: action.payload.email}
         case VALID_NAME:
-            return { ...state, namePerfil: action.payload, errorMessageName: '', error: false };
+            return { ...state, namePerfil: action.payload, errorMessageNamePerfil: '', error: false };
         case INVALID_NAME:
-            return { ...state, namePerfil: '', errorMessageName: 'Digite um nome válido!', error: true };
+            return { ...state, namePerfil: '', errorMessageNamePerfil: 'Digite um nome válido!', error: true };
         case VALID_REGISTRATION:
-            return { ...state, registrationPerfil: action.payload, errorMessageRegistration: '', error: false };
+            return { ...state, cpfPerfil: action.payload, errorMessageCpfPerfil: '', error: false };
         case INVALID_REGISTRATION:
-            return { ...state, registrationPerfil: '', errorMessageRegistration: 'Matrícula deve conter apenas números!', error: true };
+            return { ...state, cpfPerfil: '', errorMessageCpfPerfil: 'CPF deve conter apenas números!', error: true };
         case VALID_BIRTHDAY:
-            return { ...state, birthdayPerfil: action.payload, errorMessageBirthday: '', error: false };
+            return { ...state, birthdayPerfil: action.payload, errorMessageBirthdayPerfil: '', error: false };
         case INVALID_BIRTHDAY:
-            return { ...state, birthdayPerfil: action.payload, errorMessageBirthday: 'Digite um formato de data válido!', error: true };
+            return { ...state, birthdayPerfil: action.payload, errorMessageBirthdayPerfil: 'Digite um formato de data válido!', error: true };
         case UPDATE_DATA_USER_SUCESS:
             return { ...state }
         case UPDATE_DATA_USER_ERROR:

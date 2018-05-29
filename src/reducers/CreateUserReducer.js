@@ -18,14 +18,14 @@ import {
 
 const INITIAL_STATE = {
     name: '',
-    registration: '',
+    cpf: '',
     birthday: '',
     email: '',
     password: '',
     confirmPassword: '',
     loading: false,
     errorMessageName: '',
-    errorMessageRegistration: '',
+    errorMessageCpf: '',
     errorMessageBirthday: '',
     errorMessageEmail: '',
     errorMessagePassword: '',
@@ -41,9 +41,9 @@ export default (state = INITIAL_STATE, action) => {
         case INVALID_NAME:
             return { ...state, name: '', errorMessageName: 'Digite um nome válido!', error: true };
         case VALID_REGISTRATION:
-            return { ...state, registration: action.payload, errorMessageRegistration: '', error: false };
+            return { ...state, cpf: action.payload, errorMessageCpf: '', error: false };
         case INVALID_REGISTRATION:
-            return { ...state, registration: '', errorMessageRegistration: 'Matrícula deve conter apenas números!', error: true };
+            return { ...state, cpf: '', errorMessageCpf: 'CPF deve conter apenas números!', error: true };
         case VALID_BIRTHDAY:
             return { ...state, birthday: action.payload, errorMessageBirthday: '', error: false };
         case INVALID_BIRTHDAY:

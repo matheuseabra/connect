@@ -25,9 +25,9 @@ export const onNameChanged = (name) => {
     return { type: INVALID_NAME };
 };
 
-export const onRegistrationChanged = (registration) => {
-    const validateRegistration = validateNumbers(registration);
-    if (validateRegistration) return { type: VALID_REGISTRATION, payload: registration };
+export const onRegistrationChanged = (cpf) => {
+    const validateRegistration = validateNumbers(cpf);
+    if (validateRegistration) return { type: VALID_REGISTRATION, payload: cpf };
 
     return { type: INVALID_REGISTRATION };
 };
@@ -77,7 +77,7 @@ export const authUser = (user) => {
 const saveUser = (dispatch, user, usuario) => {
     database().ref(`usuario/${usuario.uid}`).set({
         nome: user.name,
-        matricula: user.registration,
+        cpf: user.cpf,
         nascimento: user.birthday,
         email: user.email
     }).then(() => {

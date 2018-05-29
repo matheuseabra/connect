@@ -25,7 +25,7 @@ class CreateUser extends Component {
   renderCreateUserButton() {
     const user = {
       name: this.props.name,
-      registration: this.props.registration,
+      cpf: this.props.cpf,
       birthday: this.props.birthday,
       email: this.props.email,
       password: this.props.password,
@@ -64,13 +64,13 @@ class CreateUser extends Component {
             <CardSection>
               <Input
                 keyboardType={'numeric'}
-                placeholder="Matrícula:"
-                onChangeText={registration => this.props.onRegistrationChanged(registration)}
-                value={this.props.registration}
+                placeholder="CPF:"
+                onChangeText={cpf => this.props.onRegistrationChanged(cpf)}
+                value={this.props.cpf}
               />
             </CardSection>
             <View>
-              <Texts text={this.props.errorMessageRegistration} />
+              <Texts text={this.props.errorMessageCpf} />
             </View>
             <CardSection>
               <Input
@@ -136,7 +136,7 @@ class CreateUser extends Component {
 const mapStateToProps = (state) => {
   return {
     name: state.createUser.name,
-    registration: state.createUser.registration,
+    cpf: state.createUser.cpf,
     birthday: state.createUser.birthday,
     email: state.createUser.email,
     password: state.createUser.password,
@@ -144,7 +144,7 @@ const mapStateToProps = (state) => {
     loading: state.createUser.loading,
     error: state.createUser.error,
     errorMessageName: state.createUser.errorMessageName,
-    errorMessageRegistration: state.createUser.errorMessageRegistration,
+    errorMessageRegistration: state.createUser.errorMessageCpf,
     errorMessageBirthday: state.createUser.errorMessageBirthday,
     errorMessageEmail: state.createUser.errorMessageEmail,
     errorMessagePassword: state.createUser.errorMessagePassword,

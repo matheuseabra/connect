@@ -145,19 +145,10 @@ class MeuPerfil extends Component {
             <Text style={styles.name}>{this.props.namePerfil}</Text>
             <Text style={styles.idade}>{this.props.idadePerfil} anos</Text>
           </View>
+          <View>
+            
+          </View>
         </ImageBackground>
-        {/* //////////// Barra //////////// */}
-        <View style={styles.barra}>
-          <View style={[styles.barraItem, styles.barraSeparador]}>
-            <Text style={styles.barraTop}>12K</Text>
-            <Text style={styles.barraBottom}>Locais Visitados</Text>
-          </View>
-
-          <View style={styles.barraItem}>
-            <Text style={styles.barraTop}>332</Text>
-            <Text style={styles.barraBottom}>Locais Adicionados</Text>
-          </View>
-        </View>
         <View style={styles.areaBtn}>
           <View style={styles.photoGrid}>
             <Button
@@ -199,15 +190,15 @@ class MeuPerfil extends Component {
                 </View>
                 <CardSection>
                   <Input
-                    placeholder="Matrícula:"
-                    onChangeText={registrationPerfil =>
-                      this.props.onRegistrationChanged(registrationPerfil)
+                    placeholder="CPF:"
+                    onChangeText={cpfPerfil =>
+                      this.props.onRegistrationChanged(cpfPerfil)
                     }
-                    value={this.props.registrationPerfil}
+                    value={this.props.cpfPerfil}
                   />
                 </CardSection>
                 <View>
-                  <Texts text={this.props.errorMessageRegistration} />
+                  <Texts text={this.props.errorMessageCpf} />
                 </View>
                 <CardSection>
                   <Input
@@ -288,35 +279,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Ubuntu',
     marginBottom: 10,
   },
-
-  //Barra//////////////////////////
-
-  barra: {
-    borderTopColor: '#fff',
-    borderTopWidth: 4,
-    backgroundColor: '#2A4065',
-    flexDirection: 'row',
-  },
-  barraSeparador: {
-    borderRightWidth: 4,
-  },
-  barraItem: {
-    flex: 1,
-    padding: 18,
-    alignItems: 'center',
-  },
-  barraTop: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
-    fontFamily: 'Ubuntu',
-  },
-  barraBottom: {
-    color: '#fff',
-    fontSize: 14,
-    fontWeight: 'bold',
-    fontFamily: 'Ubuntu',
-  },
   areaBtn: {
     flex: 1,
     backgroundColor: '#fff',
@@ -344,11 +306,11 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
   return {
     namePerfil: state.perfil.namePerfil,
-    registrationPerfil: state.perfil.registrationPerfil,
+    cpfPerfil: state.perfil.cpfPerfil,
     birthdayPerfil: state.perfil.birthdayPerfil,
     idadePerfil: state.perfil.idadePerfil,
     errorMessageName: state.perfil.errorMessageNamePerfil,
-    errorMessageRegistration: state.perfil.errorMessageRegistrationPerfil,
+    errorMessageCpf: state.perfil.errorMessageCpfPerfil,
     errorMessageBirthday: state.perfil.errorMessageBirthdayPerfil
   };
 };
