@@ -11,6 +11,24 @@
       "tipo": "Convenções"
     },
     {
+      "nome": "Auditório Setorial Básico",
+      "desc": "Auditório Setorial do campus básico, utilizado para apresentações diversas. Está localizado próximo ao Instituto de Letras e Comunicação (ILC) e o Instituto de Filosofia e Ciências Humanas (IFCH).",
+      "coords": {
+        "lat": -1.473630,
+        "lng": -48.456954
+      },
+      "tipo": "Convenções"
+    },
+    {
+      "nome": "Assessoria de Educação a Distância (AEDI)",
+      "desc": "A Assessoria de Educação à Distância - AEDI atua em 22 polos na região Norte, através de convênio firmado entre UAB-CAPES/UFPA/Prefeituras dos municípios do Estado do Pará, ofertando cursos de Graduação e Pós-graduação pela Universidade Aberta do Brasil - UAB, um sistema integrado por universidades públicas que oferece cursos de nível superior para as camadas da população que tem dificuldade de acesso à formação, e cursos de Extensão, em parceria com a Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES).",
+      "coords": {
+        "lat": -1.475552,
+        "lng": -48.456676
+      },
+      "tipo": "Administração"
+    },
+    {
       "nome": "Atelier de Artes",
       "desc": "Atelier de artes da Faculdade de Artes visuais da UFPa.",
       "coords": {
@@ -27,6 +45,33 @@
         "lng": -48.451609
       },
       "tipo": "Convenções"
+    },
+    {
+      "nome": "Biblioteca Central Prof. Dr. Clodoaldo Beckmann",
+      "desc": "Fundada no dia 19 de novembro de 1962, a Biblioteca Central da UFPA, que leva o nome do seu primeiro diretor Prof. Dr. Clodoaldo Beckmann, pertence à categoria de órgão suplementar subordinado à Reitoria, de acordo com o disposto no Art. 51 do Estatuto e ainda no Art. 100, Seção IV, Cap. II do Regimento Geral da UFPA. Conforme estes dispositivos, trata-se de um órgão de natureza técnica voltada para o desenvolvimento de atividades a fim de colaborar com programas de ensino, pesquisa, extensão e qualificação profissional das unidades acadêmicas. Integra e coordena tecnicamente um conjunto de 36 bibliotecas em Belém e nos campi dos interiores que juntas compõem o Sistema de Bibliotecas da UFPA, estabelecido com um modelo de funcionamento sistêmico em rede.",
+      "coords": {
+        "lat": -1.476166,
+        "lng": -48.456658
+      },
+      "tipo": "Biblioteca"
+    },
+    {
+      "nome": "Biblioteca do Instituto de Geociências",
+      "desc": "A Biblioteca do Instituto de Geociências é uma biblioteca universitária especializada em Ciências Naturais e da Terra, integrante do Sistema de Bibliotecas da Universidade Federal do Pará - SIBI.",
+      "coords": {
+        "lat": -1.475059,
+        "lng": -48.458061
+      },
+      "tipo": "Biblioteca"
+    },
+    {
+      "nome": "Biotério",
+      "desc": "O biotério é o local onde são criados e/ou mantidos animais vivos de qualquer espécie destinados à pesquisa científica.",
+      "coords": {
+        "lat": -1.472678,
+        "lng": -48.457663
+      },
+      "tipo": "Laboratório"
     },
     {
       "nome": "Chalé de Ferro",
